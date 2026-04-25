@@ -82,13 +82,13 @@ The TensorRT engine version uses GPU acceleration and is much faster than the CP
 The TensorRT engine was exported using:
 
 ```bash
-yolo export model=yolo11n.pt format=engine imgsz=320 half=True
+yolo export model=yolo11n.pt format=engine imgsz=640 half=True
 ```
 
 The inference code must use the same image size:
 
 ```python
-imgsz=320
+imgsz=640
 ```
 
 If the engine was built at 320 x 320, running it at 640 x 640 will cause an input-size mismatch error.
