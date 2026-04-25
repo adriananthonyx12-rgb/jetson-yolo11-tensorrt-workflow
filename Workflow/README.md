@@ -116,14 +116,30 @@ The CPU version uses the `.pt` model and runs with:
 ```python
 device="cpu"
 ```
+## Results and Observations
 
-This version is slower but useful for comparison.
+### TensorRT Engine Export
 
-The TensorRT version uses:
+The YOLO11n model was successfully exported into a TensorRT engine using FP16 mode. The engine was built using an input size of 320 x 320, so the inference script also uses `imgsz=320`.
+
+![TensorRT Engine Export](../assets/engine_export_success.png)
+
+### TensorRT GPU Resource Usage
+
+The Jetson monitoring screenshot shows the system resource usage while running the accelerated workflow. The GPU activity confirms that the inference workload is using Jetson GPU resources.
+
+![jtop TensorRT](../assets/jtop_tensorrt.png)
+
+### CPU Inference Test
+
+The CPU version used the original `yolo11n.pt` model with `device="cpu"`. It successfully detected objects from the camera feed, but the FPS was much lower compared to the TensorRT workflow.
+
+![CPU Detection](../assets/cpu_detection.png)
+
+### Discussion
+
+The TensorRT workflow is the optimized version for real-time inference on the Jetson Orin Nano. It uses the exported `.engine` file and runs with GPU acceleration using:
 
 ```python
 device="cuda"
 imgsz=320
-```
-
-The image size must match the size used during engine export.
