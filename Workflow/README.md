@@ -128,13 +128,13 @@ The YOLO11n model was successfully exported into a TensorRT engine using FP16 mo
 
 The Jetson monitoring screenshot shows the system resource usage while running the accelerated workflow. The GPU activity confirms that the inference workload is using Jetson GPU resources.
 
-![jtop TensorRT](../assets/jtop_tensorrt.png)
+![jtop TensorRT](../assets/jtop_CPU.png)
 
 ### CPU Inference Test
 
 The CPU version used the original `yolo11n.pt` model with `device="cpu"`. It successfully detected objects from the camera feed, but the FPS was much lower compared to the TensorRT workflow.
 
-![CPU Detection](../assets/cpu_detection.png)
+![CPU Detection](../assets/detection.png)
 
 ### Discussion
 
