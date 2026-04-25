@@ -142,4 +142,4 @@ The TensorRT workflow is the optimized version for real-time inference on the Je
 
 ```python
 device="cuda"
-imgsz=320
+imgsz=640
